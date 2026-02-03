@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Dict, Optional
 from machines import Machine
 from items import Item
 
@@ -7,23 +8,24 @@ class Recipe:
     """
     Represents a crafting recipe, detailing the inputs required to produce a specific output item.
     """
-
-    name: str
-    icon: str
     machine: Machine
     output: Item
-    ingredients: dict[Item, int]  # Mapping of Item to quantity required
-    time_seconds: float
-    ratio_raw: str # Used for GUI display
-    
-    
-    
+    ingredients: Dict[Item, int]
+    time_seconds: Optional[float] = None
+    ratio_raw: str = ""
+
+    # Derived fields
+    name: str = field(init=False)
+    icon: str = field(init=False)
+
     def __post_init__(self):
-        """
-        Logic to automatically assign the icon based on the recipe's output.
-        """
+        # Derive display fields from output
         self.name = self.output.name
-        self.icon_path = self.output.icon_path
+        self.icon = self.output.icon_path
+
+        # Use machine's processing time if not explicitly provided
+        if self.time_seconds is None:
+            self.time_seconds = self.machine.time_seconds
 
 
 # Recipes ordered by province, then machine type, then alphabetically by output name
