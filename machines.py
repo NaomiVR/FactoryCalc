@@ -11,6 +11,15 @@ class Building:
     description: str
     on_ground: bool = True
 
+    def __post_init__(self) -> None:
+        if self.size[0] <= 0 or self.size[1] <= 0:
+            raise ValueError(f"Building size must be positive, got {self.size}")
+
+    @property
+    def footprint(self) -> int:
+        """Returns the total tiles occupied (e.g., 3x3 = 9)."""
+        return self.size[0] * self.size[1]
+
 
 @dataclass
 class Machine(Building):
@@ -23,6 +32,17 @@ class Machine(Building):
     liquid_input_slots: int = 0
     liquid_output_slots: int = 0
     power_usage: float = 0.0
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+        if self.time_seconds < 0:
+            raise ValueError("Machine cycle time cannot be negative.")
+
+        # Ensure slot counts aren't accidentally negative
+        for slot_attr in ['physical_input_slots', 'physical_output_slots', 'liquid_input_slots', 'liquid_output_slots']:
+            if getattr(self, slot_attr) < 0:
+                raise ValueError(f"{slot_attr} cannot be negative.")
 
 
 ### ADD AIC TECH TREE
