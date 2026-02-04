@@ -8,7 +8,7 @@ class Item:
     """
     name: str
     icon_path: str
-    stock_bill_per_item: int = 0  # Default to 0 if not specified
+    stock_bill_per_item: int = 0  # Default to 0 if not specified, doesn't differentiate between wuling and valley iv bills
 
 
 ### Natural Resources ###
@@ -40,10 +40,10 @@ yazhen_seed = Item("Yazhen Seed", "ItemIcons/Natural_Resources_Icons/Yazhen_Seed
 
 ### AIC Products ###
 aketine_powder = Item("Aketine Powder", "ItemIcons/AIC_Products_Icons/Aketine_Powder.png")
-amethyst_bottle = Item("Amethyst Bottle", "ItemIcons/AIC_Products_Icons/Amethyst_Bottle.png")
+amethyst_bottle = Item("Amethyst Bottle", "ItemIcons/AIC_Products_Icons/Amethyst_Bottle.png", 2)
 amethyst_component = Item("Amethyst Component", "ItemIcons/AIC_Products_Icons/Amethyst_Component.png")
-amethyst_fibre = Item("Amethyst Fibre", "ItemIcons/AIC_Products_Icons/Amethyst_Fibre.png")
-amethyst_part = Item("Amethyst Part", "ItemIcons/AIC_Products_Icons/Amethyst_Part.png")
+amethyst_fibre = Item("Amethyst Fibre", "ItemIcons/AIC_Products_Icons/Amethyst_Fiber.png")
+amethyst_part = Item("Amethyst Part", "ItemIcons/AIC_Products_Icons/Amethyst_Part.png", 1)
 amethyst_powder = Item("Amethyst Powder", "ItemIcons/AIC_Products_Icons/Amethyst_Powder.png")
 carbon = Item("Carbon", "ItemIcons/AIC_Products_Icons/Carbon.png")
 carbon_powder = Item("Carbon Powder", "ItemIcons/AIC_Products_Icons/Carbon_Powder.png")
@@ -62,41 +62,41 @@ ferrium_bottle_clean_water = Item("Ferrium Bottle (Clean Water)", "ItemIcons/AIC
 ferrium_bottle_jincao = Item("Ferrium Bottle (Jincao)", "ItemIcons/AIC_Products_Icons/Ferrium_Bottle_Jincao.png")
 ferrium_bottle_yazhen = Item("Ferrium Bottle (Yazhen)", "ItemIcons/AIC_Products_Icons/Ferrium_Bottle_Yazhen.png")
 ferrium_component = Item("Ferrium Component", "ItemIcons/AIC_Products_Icons/Ferrium_Component.png")
-ferrium_part = Item("Ferrium Part", "ItemIcons/AIC_Products_Icons/Ferrium_Part.png")
+ferrium_part = Item("Ferrium Part", "ItemIcons/AIC_Products_Icons/Ferrium_Part.png", 1)
 ferrium_powder = Item("Ferrium Powder", "ItemIcons/AIC_Products_Icons/Ferrium_Powder.png")
 ground_buckflower_powder = Item("Ground Buckflower Powder", "ItemIcons/AIC_Products_Icons/Ground_Buckflower_Powder.png")
 ground_citrome_powder = Item("Ground Citrome Powder", "ItemIcons/AIC_Products_Icons/Ground_Citrome_Powder.png")
-hc_valley_battery = Item("HC Valley Battery", "ItemIcons/AIC_Products_Icons/HC_Valley_Battery.png")
+hc_valley_battery = Item("HC Valley Battery", "ItemIcons/AIC_Products_Icons/HC_Valley_Battery.png", 70)
 jincao_solution = Item("Jincao Solution", "ItemIcons/AIC_Products_Icons/Jincao_Solution.png")
-lc_valley_battery = Item("LC Valley Battery", "ItemIcons/AIC_Products_Icons/LC_Valley_Battery.png")
-lc_wuling_battery = Item("LC Wuling Battery", "ItemIcons/AIC_Products_Icons/LC_Wuling_Battery.png")
+lc_valley_battery = Item("LC Valley Battery", "ItemIcons/AIC_Products_Icons/LC_Valley_Battery.png", 16)
+lc_wuling_battery = Item("LC Wuling Battery", "ItemIcons/AIC_Products_Icons/LC_Wuling_Battery.png", 25)
 liquid_xiranite = Item("Liquid Xiranite", "ItemIcons/AIC_Products_Icons/Liquid_Xiranite.png")
 originium_powder = Item("Originium Powder", "ItemIcons/AIC_Products_Icons/Originium_Powder.png")
-origocrust = Item("Origocrust", "ItemIcons/AIC_Products_Icons/Origocrust.png")
+origocrust = Item("Origocrust", "ItemIcons/AIC_Products_Icons/Origocrust.png", 1)
 origocrust_powder = Item("Origocrust Powder", "ItemIcons/AIC_Products_Icons/Origocrust_Powder.png")
 packed_origocrust = Item("Packed Origocrust", "ItemIcons/AIC_Products_Icons/Packed_Origocrust.png")
 sandleaf_powder = Item("Sandleaf Powder", "ItemIcons/AIC_Products_Icons/Sandleaf_Powder.png")
-sc_valley_battery = Item("SC Valley Battery", "ItemIcons/AIC_Products_Icons/SC_Valley_Battery.png")
+sc_valley_battery = Item("SC Valley Battery", "ItemIcons/AIC_Products_Icons/SC_Valley_Battery.png", 30)
 stabilized_carbon = Item("Stabilized Carbon", "ItemIcons/AIC_Products_Icons/Stabilized_Carbon.png")
 steel = Item("Steel", "ItemIcons/AIC_Products_Icons/Steel.png")
 steel_bottle = Item("Steel Bottle", "ItemIcons/AIC_Products_Icons/Steel_Bottle.png")
-steel_part = Item("Steel Part", "ItemIcons/AIC_Products_Icons/Steel_Part.png")
-xiranite = Item("Xiranite", "ItemIcons/AIC_Products_Icons/Xiranite.png")
+steel_part = Item("Steel Part", "ItemIcons/AIC_Products_Icons/Steel_Part.png", 3)
+xiranite = Item("Xiranite", "ItemIcons/AIC_Products_Icons/Xiranite.png", 1)
 xiranite_component = Item("Xiranite Component", "ItemIcons/AIC_Products_Icons/Xiranite_Component.png")
 yazhen_solution = Item("Yazhen Solution", "ItemIcons/AIC_Products_Icons/Yazhen_Solution.png")
 
 
 ### Usable Items ###
-buck_capsule_a = Item("Buck Capsule [A]", "ItemIcons/Usable_Items_Icons/Buck_Capsule_[A].png")
-buck_capsule_b = Item("Buck Capsule [B]", "ItemIcons/Usable_Items_Icons/Buck_Capsule_[B].png")
-buck_capsule_c = Item("Buck Capsule [C]", "ItemIcons/Usable_Items_Icons/Buck_Capsule_[C].png")
+buck_capsule_a = Item("Buck Capsule [A]", "ItemIcons/Usable_Items_Icons/Buck_Capsule_[A].png", 70)
+buck_capsule_b = Item("Buck Capsule [B]", "ItemIcons/Usable_Items_Icons/Buck_Capsule_[B].png", 27)
+buck_capsule_c = Item("Buck Capsule [C]", "ItemIcons/Usable_Items_Icons/Buck_Capsule_[C].png", 10)
 buckflower_powder = Item("Buckflower Powder", "ItemIcons/Usable_Items_Icons/Buckflower_Powder.png")
-citrome_capsule_a = Item("Citrome Capsule [A]", "ItemIcons/Usable_Items_Icons/Citrome_Capsule_[A].png")
-citrome_capsule_b = Item("Citrome Capsule [B]", "ItemIcons/Usable_Items_Icons/Citrome_Capsule_[B].png")
-citrome_capsule_c = Item("Citrome Capsule [C]", "ItemIcons/Usable_Items_Icons/Citrome_Capsule_[C].png")
+citrome_capsule_a = Item("Citrome Capsule [A]", "ItemIcons/Usable_Items_Icons/Canned_Citrome_[A].png", 70)
+citrome_capsule_b = Item("Citrome Capsule [B]", "ItemIcons/Usable_Items_Icons/Canned_Citrome_[B].png", 27)
+citrome_capsule_c = Item("Citrome Capsule [C]", "ItemIcons/Usable_Items_Icons/Canned_Citrome_[C].png", 10)
 citrome_powder = Item("Citrome Powder", "ItemIcons/Usable_Items_Icons/Citrome_Powder.png")
 industrial_explosive = Item("Industrial Explosive", "ItemIcons/Usable_Items_Icons/Industrial_Explosive.png")
-jincao_drink = Item("Jincao Drink", "ItemIcons/Usable_Items_Icons/Jincao_Drink.png")
+jincao_drink = Item("Jincao Drink", "ItemIcons/Usable_Items_Icons/Jincao_Drink.png", 16)
 jincao_powder = Item("Jincao Powder", "ItemIcons/Usable_Items_Icons/Jincao_Powder.png")
 yazhen_powder = Item("Yazhen Powder", "ItemIcons/Usable_Items_Icons/Yazhen_Powder.png")
-yazhen_syringe_c = Item("Yazhen Syringe [C]", "ItemIcons/Usable_Items_Icons/Yazhen_Syringe_[C].png")
+yazhen_syringe_c = Item("Yazhen Syringe [C]", "ItemIcons/Usable_Items_Icons/Yazhen_Syringe_[C].png", 16)

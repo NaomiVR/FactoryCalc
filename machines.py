@@ -9,6 +9,7 @@ class Building:
     name: str
     size: tuple[int, int]  # e.g. (3, 3) - width, height
     description: str
+    on_ground: bool = True
 
 
 @dataclass
@@ -22,6 +23,10 @@ class Machine(Building):
     liquid_input_slots: int = 0
     liquid_output_slots: int = 0
     power_usage: float = 0.0
+
+
+### ADD AIC TECH TREE
+### ADD POWER RADIUS TO PYLONS AND RELAYS (RELAYS CONDITIONAL ON TECH TREE)
 
 
 ### Valley IV Machines ###
@@ -38,47 +43,38 @@ belt_bridge = Machine(
     name="Belt Bridge",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
     physical_input_slots=2,
     physical_output_slots=2,
-    power_usage=0.0,
 )
 
 splitter = Machine(
     name="Splitter",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
     physical_input_slots=1,
     physical_output_slots=3,
-    power_usage=0.0,
 )
 
 converger = Machine(
     name="Converger",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
     physical_input_slots=3,
     physical_output_slots=1,
-    power_usage=0.0,
 )
 
 item_control_port = Machine(
     name="Item Control Port",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
     physical_input_slots=1,
     physical_output_slots=1,
-    power_usage=0.0,
 )
 
 protocol_stash = Machine(
     name="Protocol Stash",
     size=(2, 2),
     description="",
-    time_seconds=0.0,
     physical_input_slots=3,
     physical_output_slots=3,
     power_usage=5.0,
@@ -98,10 +94,8 @@ depot_unloader = Machine(
     name="Depot Unloader",
     size=(1, 3),
     description="",
-    time_seconds=0.0,
     physical_input_slots=0,
     physical_output_slots=1,
-    power_usage=0.0,
 )
 
 refining_unit = Machine(
@@ -208,26 +202,19 @@ thermal_bank = Machine(
     name="Thermal Bank",
     size=(2, 2),
     description="",
-    time_seconds=0.0,
     physical_input_slots=2,
-    physical_output_slots=0,
-    power_usage=0.0,
 )
 
 electric_pylon = Machine(
     name="Electric Pylon",
     size=(2, 2),
     description="",
-    time_seconds=0.0,
-    power_usage=0.0,
 )
 
 relay_tower = Machine(
     name="Relay Tower",
     size=(3, 3),
     description="",
-    time_seconds=0.0,
-    power_usage=0.0,
 )
 
 
@@ -236,50 +223,45 @@ pipe = Machine(
     name="Pipe",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
+    on_ground=False,
     liquid_input_slots=1,
     liquid_output_slots=1,
-    power_usage=0.0,
 )
 
 pipe_bridge = Machine(
     name="Pipe Bridge",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
+    on_ground=False,
     liquid_input_slots=2,
     liquid_output_slots=2,
-    power_usage=0.0,
 )
 
 pipe_splitter = Machine(
     name="Pipe Splitter",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
+    on_ground=False,
     liquid_input_slots=1,
     liquid_output_slots=3,
-    power_usage=0.0,
 )
 
 pipe_converger = Machine(
     name="Pipe Converger",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
+    on_ground=False,
     liquid_input_slots=3,
     liquid_output_slots=1,
-    power_usage=0.0,
 )
 
 pipe_control_port = Machine(
     name="Pipe Control Port",
     size=(1, 1),
     description="",
-    time_seconds=0.0,
+    on_ground=False,
     liquid_input_slots=1,
     liquid_output_slots=1,
-    power_usage=0.0,
 )
 
 planting_unit_wuling = Machine(
@@ -308,11 +290,11 @@ separating_unit = Machine(
     name="Separating Unit",
     size=(4, 6),
     description="",
-    time_seconds=0.0,
+    time_seconds=2.0,  # 30/min
     physical_input_slots=6,
     physical_output_slots=6,
     liquid_output_slots=1,
-    power_usage=0.0,
+    power_usage=50.0,
 )
 
 reactor_crucible = Machine(
@@ -351,14 +333,10 @@ xiranite_pylon = Machine(
     name="Xiranite Pylon",
     size=(2, 2),
     description="",
-    time_seconds=0.0,
-    power_usage=0.0,
 )
 
 xiranite_relay = Machine(
     name="Xiranite Relay",
     size=(3, 3),
     description="",
-    time_seconds=0.0,
-    power_usage=0.0,
 )
