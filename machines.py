@@ -5,9 +5,14 @@ from dataclasses import dataclass
 class Building:
     """
     Represents the base building and therefore base attributes, name and size
+    Attributes:
+        name (str): The name of the building
+        size (tuple[int, int]): The width and height of the building in tiles (e.g., (3, 3))
+        description (str): A brief description of the building's function or purpose
+        on_ground (bool): Whether the building is placed on the ground (True) or elevated
     """
     name: str
-    size: tuple[int, int]  # e.g. (3, 3) - width, height
+    size: tuple[int, int]
     description: str
     on_ground: bool = True
 
@@ -25,8 +30,15 @@ class Building:
 class Machine(Building):
     """
     Represents the physical machine constraints (Grid size, slots, etc.) of AIC machines.
+    Attributes:
+        time_seconds (float): Time for a machine to process 1 item i.e.
+        physical_input_slots (int): Number of physical input slots for items
+        physical_output_slots (int): Number of physical output slots for items
+        liquid_input_slots (int): Number of liquid input slots
+        liquid_output_slots (int): Number of liquid output slots
+        power_usage (float): Power usage
     """
-    time_seconds: float = 0.0 # Time for a machine to process 1 item i.e. 1 item per 2 seconds is 2.0 which 30 items/minute
+    time_seconds: float = 0.0  # Time for a machine to process 1 item i.e. 1 item per 2 seconds is 2.0 which 30 items/minute
     physical_input_slots: int = 0
     physical_output_slots: int = 0
     liquid_input_slots: int = 0
@@ -45,8 +57,8 @@ class Machine(Building):
                 raise ValueError(f"{slot_attr} cannot be negative.")
 
 
-### ADD AIC TECH TREE
-### ADD POWER RADIUS TO PYLONS AND RELAYS (RELAYS CONDITIONAL ON TECH TREE)
+#TODO     ADD AIC TECH TREE
+#TODO     ADD POWER RADIUS TO PYLONS AND RELAYS (RELAYS CONDITIONAL ON TECH TREE)
 
 
 ### Valley IV Machines ###
@@ -237,7 +249,6 @@ relay_tower = Machine(
     description="",
 )
 
-
 ### Wuling ###
 pipe = Machine(
     name="Pipe",
@@ -360,3 +371,5 @@ xiranite_relay = Machine(
     size=(3, 3),
     description="",
 )
+
+MACHINE_REGISTRY = {v.name: v for k, v in vars().items() if isinstance(v, Machine)}

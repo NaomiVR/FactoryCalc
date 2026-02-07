@@ -5,6 +5,12 @@ from dataclasses import dataclass
 class Item:
     """
     Represents a single item or fluid (e.g., 'Originium Ore', 'Water').
+    Attributes:
+        name (str): The name of the item
+        icon_path (str): The file path to the item's icon image
+        is_fluid (bool): Whether the item is a fluid (True) or solid (False)
+        stock_bill_valley (int): The quantity of this item required in the stock bill for Valley of Heroes (if applicable)
+        stock_bill_wuling (int): The quantity of this item required in the stock bill for Wuling (if applicable)
     """
     name: str
     icon_path: str
@@ -121,3 +127,5 @@ jincao_drink = Item("Jincao Drink", "ItemIcons/Usable_Items_Icons/Jincao_Drink.p
 jincao_powder = Item("Jincao Powder", "ItemIcons/Usable_Items_Icons/Jincao_Powder.png")
 yazhen_powder = Item("Yazhen Powder", "ItemIcons/Usable_Items_Icons/Yazhen_Powder.png")
 yazhen_syringe_c = Item("Yazhen Syringe [C]", "ItemIcons/Usable_Items_Icons/Yazhen_Syringe_[C].png", stock_bill_wuling=16)
+
+ITEM_REGISTRY = {v.name: v for k, v in vars().items() if isinstance(v, Item)}
