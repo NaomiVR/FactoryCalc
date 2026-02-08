@@ -128,4 +128,4 @@ jincao_powder = Item("Jincao Powder", "ItemIcons/Usable_Items_Icons/Jincao_Powde
 yazhen_powder = Item("Yazhen Powder", "ItemIcons/Usable_Items_Icons/Yazhen_Powder.png")
 yazhen_syringe_c = Item("Yazhen Syringe [C]", "ItemIcons/Usable_Items_Icons/Yazhen_Syringe_[C].png", stock_bill_wuling=16)
 
-ITEM_REGISTRY = {v.name: v for k, v in vars().items() if isinstance(v, Item)}
+ITEM_REGISTRY = {k: v for k, v in vars().items() if isinstance(v, Item)}

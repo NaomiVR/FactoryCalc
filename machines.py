@@ -372,4 +372,4 @@ xiranite_relay = Machine(
     description="",
 )
 
-MACHINE_REGISTRY = {v.name: v for k, v in vars().items() if isinstance(v, Machine)}
+MACHINE_REGISTRY = {k: v for k, v in vars().items() if isinstance(v, Machine)}
