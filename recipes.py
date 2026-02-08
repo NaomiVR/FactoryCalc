@@ -4,7 +4,6 @@ from items import Item, ITEM_REGISTRY
 from machines import Machine, MACHINE_REGISTRY
 
 
-
 @dataclass
 class Recipe:
     """
